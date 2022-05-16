@@ -47,8 +47,6 @@ form.addEventListener("submit", (e) => {
     console.log("12* feet: " + 12*feet);
     console.log("Total inches: " + totalInches);
     console.log("Total height in CM: " + totalHeightInCM)
-    
-
 })
 
 
