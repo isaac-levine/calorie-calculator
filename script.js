@@ -1,12 +1,11 @@
-
-// get a reference to the actual form 
+// get a reference to the form 
 const form = document.getElementById('form');
 
-// add an event listener for the 'submit' event
+// when the form is submitted
 form.addEventListener("submit", (e) => {
     console.log("Calculating...");
 
-    // stops the default behavior of the browser
+    // stops default behavior of the browser (prevent page refresh)
     e.preventDefault();
 
     // store form data in object
@@ -28,25 +27,22 @@ form.addEventListener("submit", (e) => {
     console.log(weightInPounds)
     console.log(activityLevel)
 
+    // convert inputs
     const totalInches = (12 * +feet) + +inches;
     const totalHeightInCM = inchesToCM(totalInches);
     const weightInKG = poundsToKG(weightInPounds);
 
+    // calculate and round BMR
     const BMR = Math.ceil(mifflin(gender, age, totalHeightInCM, weightInKG));
 
+    // calculate maintenance based on BMR and activityLevel
     const maintenanceCals = Math.ceil(computeMaintenance(BMR, activityLevel));
 
-    // update the displayed calorie count
+    // update the displayed calorie counts
     document.getElementById('bmr-cals').innerHTML = BMR + " cals/day";
     document.getElementById('maintenance-cals').innerHTML = maintenanceCals + " cals/day";
     document.getElementById('gain-cals').innerHTML = (maintenanceCals+500) + " cals/day";
     document.getElementById('loss-cals').innerHTML = (maintenanceCals-500) + " cals/day";
-
-    console.log("Inches: " + inches)
-    console.log("Feet: " + feet)
-    console.log("12* feet: " + 12*feet);
-    console.log("Total inches: " + totalInches);
-    console.log("Total height in CM: " + totalHeightInCM)
 })
 
 
@@ -56,14 +52,17 @@ function mifflin(gender, age, height, weight) {
     return gender === "female" ? base -= 161 : base += 5;
 }
 
+// converts in to cm
 function inchesToCM(inches) {
     return inches * 2.54;
 }
 
+// converts lb to kg
 function poundsToKG(pounds) {
     return pounds * 0.45359237;
 }
 
+// calculates mantenance by scaling BMR based on activity level
 function computeMaintenance(BMR, activityLevel) {
     if (activityLevel === 'sedentary') {
         return BMR*=1.2;
