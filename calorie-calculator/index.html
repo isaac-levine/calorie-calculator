@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <title>BMR Calculator</title>
+</head>
+
+<body>
+    <!-- TITLE -->
+    <h1 class="text-center mt-4">Cal-Calc</h1>
+    <!-- BY ISAAC LEVINE --->
+    <h6 class="text-center text-secondary">Calorie Calculator created by Isaac Levine <span
+            class="badge bg-secondary rounded-pill"><a class="text-light" href="https://github.com/isaac-levine"><i
+                    class="bi bi-github"></i>
+                More Projects</a>
+        </span>
+    </h6>
+    <div class="container row mx-auto mt-5">
+        <!-- LEFT SIDE / INPUT SECTION --->
+        <div class="col-6">
+            <form id="form" class="py-3 form-control-lg bg-light border-0 rounded-3 shadow p-3 mb-5 bg-light rounded">
+                <div class="mb-3 row">
+                    <!-- Age -->
+                    <div class="col-6 row me-auto">
+                        <label class="col-4" for="inputAge">Age:</label>
+                        <div class="col-8">
+                            <input class="shadow col-8 form-control" id="inputAge" min="0" type="number" name="age"
+                                required />
+                        </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-6 row me-auto">
+                        <label class="col-4" for="selectGender">Gender:</label>
+                        <div class="col-8">
+                            <select class="col-8 form-select shadow" id="selectGender" name="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- Height -->
+                <div class="mb-3 row">
+                    <div class="col-6 row">
+                        <label class="col-4" for="inputFeet">Height:</label>
+                        <div class="col-8">
+                            <input min="0" placeholder="Feet" class="form-control shadow" id="inputFeet" type="number"
+                                name="feet" required />
+                        </div>
+                    </div>
+                    <div class="col-6 row">
+                        <div class="col-8">
+                            <input min="0" max="11" placeholder="Inches" class="col-8 form-control shadow"
+                                id="inputInches" type="number" name="inches" required />
+                        </div>
+                    </div>
+                </div>
+                <!-- Weight -->
+                <div class="mb-3 row">
+                    <div class="row me-auto">
+                        <label class="col-2 col-form-label" for="inputWeight">Weight:</label>
+                        <div class="col-10">
+                            <input class="form-control shadow" min="0" id="inputWeight" type="number" name="weight"
+                                required />
+                        </div>
+                    </div>
+                </div>
+                <!-- Activity Level -->
+                <div class="mb-3 row">
+                    <div class="row me-auto">
+                        <label class="col-3 col-form-label" for="selectActivityLevel">Activity Level:</label>
+                        <div class="col-9">
+                            <select class="form-select shadow" id="selectActivityLevel" name="activity-level" required>
+                                <option value="sedentary">Sedentary: Little or no exercise</option>
+                                <option value="light">Light: Exercise 1-3 times per week</option>
+                                <option value="moderate">Moderate: Exercise 3-4 times per week</option>
+                                <option value="active">Active: Daily exercise or intense exercise 4-5 times per week
+                                </option>
+                                <option value="very-active">Very Active: Intense exercise 6-7 times per week
+                                </option>
+                                <option value="extra-active">Extra Active: Very intense exercise daily or physically
+                                    demanding
+                                    job
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- BUTTONS -->
+                <button class="btn btn-primary shadow" type="submit" id="calculate-button"><i
+                        class="bi bi-calculator-fill"></i>
+                    Calculate</button>
+                <button class="btn btn-secondary shadow" type="reset" id="clear-button"><i class="bi bi-x-lg"></i>
+                    Clear</button>
+            </form>
+        </div>
+        <!-- RIGHT SIDE / OUTPUT SECTION --->
+        <div class="col-6 py-4">
+            <div class="container row py-2">
+                <h3 class="col-4 ">BMR:</h3>
+                <h3 class="col-8 text-end" id="bmr-cals">0 cals/day</h3>
+            </div>
+            <div class="container row py-2">
+                <h3 class="col-4 mx-auto">Maintenance:</h3>
+                <h3 class="col-8 text-end" id="maintenance-cals">0 cals/day</h3>
+            </div>
+            <div class="container row py-2">
+                <h3 class="col-4">Weight Gain:</h3>
+                <h3 class="col-8 text-end" id="gain-cals">0 cals/day</h3>
+            </div>
+            <div class="container row py-2">
+                <h3 class="col-4">Weight Loss:</h3>
+                <h3 class="col-8 text-end" id="loss-cals">0 cals/day</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container row mx-auto mt-5">
+    </div>
+</body>
+
+</html>
+<script src=" script.js">
+</script>
